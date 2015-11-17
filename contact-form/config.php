@@ -1,9 +1,9 @@
 <?php
 
-define('FORM_EMAIL_LOGO', getenv('FORM_EMAIL_LOGO'));
-define('FORM_HANDLER', getenv('FORM_HANDLER'));
+define('FORM_EMAIL_LOGO', '');
+define('FORM_HANDLER', 'contact/submit');
 define('FORM_THEME', 'email');
-define('FORM_VERIFY_TOKEN', getenv('FORM_VERIFY_TOKEN'));
+define('FORM_VERIFY_TOKEN', '');
 define('FORM_VERIFY_SERVER', 'http://www.searchitlocal.co.uk');
 define('FORM_EMAIL', SITE_EMAIL);
 define('FORM_SUBJECT', 'New message from your website');
