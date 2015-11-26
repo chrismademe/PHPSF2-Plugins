@@ -65,3 +65,8 @@ if ( $posts = $SC->getPosts() ) {
 if ( is_index( $SocialCentre['page'] ) && isset( $index[1] ) && $post = $SC->getPost( $index[1] ) ) {
     $variables->add('post', $post);
 }
+
+/**
+ * Add SC config variable
+ */
+$variables->add('sc', $SocialCentre);
