@@ -16,11 +16,8 @@ if ( !plugin_is_active('database') ) {
 
 // Check Medoo exists
 if ( !class_exists('medoo') ) {
-    throw new Exception('Medoo plugin requires Medoo class to be included.');
+    throw new Exception('Medoo plugin requires Medoo class to be included. Hint: <code>composer require catfan/medoo</code>');
 }
-
-// Register trigger
-$triggers->addTrigger('on_medoo_init');
 
 // Create new instance of Medoo
 $medoo = new medoo([
@@ -33,5 +30,8 @@ $medoo = new medoo([
     'port' => DB_PORT
 ]);
 
-// Run trigger
-$triggers->doTrigger('on_medoo_init');
+// Create medoo() function
+function medoo() {
+    global $medoo;
+    return $medoo;
+}
