@@ -56,12 +56,12 @@ $SC = new SocialCentre( SITE_DOMAIN );
  * Get Posts
  */
 if ( $posts = $SC->getPosts() ) {
-    $variables->addVar('posts', $posts);
+    $variables->add('posts', $posts);
 }
 
 /**
  * Get Single Post
  */
 if ( is_index( $SocialCentre['page'] ) && isset( $index[1] ) && $post = $SC->getPost( $index[1] ) ) {
-    $variables->addVar('post', $post);
+    $variables->add('post', $post);
 }
