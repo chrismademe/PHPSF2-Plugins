@@ -32,19 +32,16 @@ if ( !class_exists('ContactForm\ContactForm') ) {
 }
 
 /**
- * Register trigger
+ * Check Gump class is available
  */
-$triggers->addTrigger('on_form_submit');
+if ( !class_exists('GUMP') ) {
+    throw new Exception('GUMP is required for the contact form plugin to function. Hint: <code>composer require wixel/gump</code>');
+}
 
 /**
  * Run Form Submission
  */
 if ( is_path( FORM_HANDLER ) && is_form_data() ) {
-
-    /**
-     * Run on_form_submit trigger
-     */
-    $triggers->doTrigger('on_form_submit');
 
     /**
      * New GUMP instance
@@ -102,10 +99,10 @@ if ( is_path( FORM_HANDLER ) && is_form_data() ) {
         /**
          * Get response
          */
-        $variables->addVar('contact_response', $contact->getResponse());
+        $variables->add('contact_response', $contact->getResponse());
 
     } else {
-        $variables->addVar('contact_response', $gump->get_readable_errors(true));
+        $variables->add('contact_response', $gump->get_readable_errors(true));
     }
 
 }
