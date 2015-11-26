@@ -20,7 +20,7 @@ if ( !class_exists('medoo') ) {
 }
 
 // Create new instance of Medoo
-$medoo = new medoo([
+$medoo = new medoo(array(
     'database_type' => 'mysql',
     'database_name' => DB_NAME,
     'server' => DB_HOST,
@@ -28,7 +28,7 @@ $medoo = new medoo([
     'password' => DB_PASS,
     'charset' => 'utf8',
     'port' => DB_PORT
-]);
+));
 
 // Create medoo() function
 function medoo() {
