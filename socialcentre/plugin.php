@@ -56,14 +56,26 @@ $SC = new SocialCentre( SITE_DOMAIN );
  * Get Posts
  */
 if ( $posts = $SC->getPosts() ) {
+    
+    # Apply Filters
+    $posts = apply_filters( 'sc_posts', $posts );
+    
+    # Send to theme
     $variables->add('posts', $posts);
+    
 }
 
 /**
  * Get Single Post
  */
 if ( is_index( $SocialCentre['page'] ) && isset( $index[1] ) && $post = $SC->getPost( $index[1] ) ) {
+    
+    # Apply Filters
+    $post = apply_filters( 'sc_post', $post );
+    
+    # Send to theme
     $variables->add('post', $post);
+    
 }
 
 /**
