@@ -13,6 +13,7 @@ post.date = Post created timestamp
 post.content = Post content
 post.snippet = A snippet of the post content
 post.image = Post image
+sc.page = Slug of the page set to display posts
 
 #}
 
@@ -24,7 +25,6 @@ post.image = Post image
     <section class="content">
         <h1>{{ post.title }}</h1>
         <p>{{ post.snippet }}</p>
-        <p><a href="/blog/{{ post.ID }}">Read more...</a></p>
     </section>
 </article>
 {% else %}
@@ -38,7 +38,7 @@ post.image = Post image
             <section class="content">
                 <h1>{{ post.title }}</h1>
                 <p>{{ post.snippet }}</p>
-                <p><a href="/blog/{{ post.ID }}">Read more...</a></p>
+                <p><a href="/{{ sc.page }}/{{ post.ID }}">Read more...</a></p>
             </section>
         </article>
         {% endfor %}

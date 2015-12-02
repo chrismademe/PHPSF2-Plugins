@@ -36,11 +36,11 @@ class SocialCentre {
         }
 
         // Check Compatibility
-        if ( $version <= 2.06 ) {
+        if ( $version >= 2.06 ) {
             return true;
         }
 
-        return true;
+        return false;
 
     }
 
