@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <title>Install PHPSF2 CMS</title>
+    <style>
+    body {
+        color: #454545;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    .wrapper {
+        margin: 0 auto;
+        width: 460px;
+    }
+    .card {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        margin-top: 30px;
+        padding: 18px 24px;
+    }
+    .button {
+        background-color: #572e8b;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    .file-list code {
+        color: #059d61;
+    }
+    pre {
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        color: #777;
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>Install PHPSF2 CMS</h1>
+
+        <div class="card">
+            <h3>Before we begin</h3>
+            <p>CMS has a few Composer dependencies. <strong>Install these before anything else!</strong>.</p>
+            {% if not cms_gump %}
+            <h4>GUMP</h4>
+            <pre>composer require wixel/gump</pre>
+            {% endif %}
+            {% if not cms_phpauth %}
+            <h4>PHPAuth</h4>
+            <pre>composer require phpauth/phpauth</pre>
+            {% endif %}
+            {% if not cms_simpleimage %}
+            <h4>SimpleImage</h4>
+            <pre>composer require abeautifulsite/simpleimage</pre>
+            {% endif %}
+
+            {% if cms_gump and cms_phpauth and cms_simpleimage %}
+            <p><em>Alright then, you've already installed the dependencies! As you were...</em></p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h3>Basics</h3>
+            <p>We need to copy a few files and folders to get us started. They are:</p>
+            <ul class="file-list">
+                <li {% if not cms_theme_folder %}style="color: #c94920; text-decoration: line-through"{% endif %}>Theme, to <code>/app/theme/admin</code></li>
+                <li {% if not cms_assets_folder %}style="color: #c94920; text-decoration: line-through"{% endif %}>Assets, to <code>/public_html/assets</code></li>
+            </ul>
+            <p><strong></strong></p>
+            <p>Once we've done that, we'll get on to setting up the database.</p>
+            {% if cms_theme_folder and cms_assets_folder %}
+            <p><a class="button" href="/admin/install/submit">Do it!</a></p>
+            {% else %}
+            <p style="color: #da7c0e"><strong>1 or more of the folders above are not writeable. Please check permissions or install manually.</strong></p>
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+</html>

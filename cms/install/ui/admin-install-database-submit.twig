@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>Install PHPSF2 CMS</title>
+    <style>
+    body {
+        color: #454545;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    .wrapper {
+        margin: 0 auto;
+        width: 400px;
+    }
+    .card {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        margin-top: 30px;
+        padding: 18px 24px;
+    }
+    .button {
+        background-color: #572e8b;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>Install PHPSF2 CMS</h1>
+
+        {% if cms_install_database %}
+        <div class="card">
+            <h3 style="color: #059d61">That's it!</h3>
+            <p>You're all set, you can now login and start using the CMS.</p>
+            <p>Click the button below to attempt to clean up the install files. If you're having trouble, you can simply delete them manually. (the <code>install</code> folder and the <code>admin-</code> theme files in your active theme).</p>
+            <p><a class="button" href="/admin/install/cleanup">Clean up and go</a></p>
+        </div>
+        {% else %}
+        <div class="card">
+            <h3>Oh mama :(</h3>
+            <p>It didn't work. You can find the SQL import file in <code>/app/plugins/cms/install/inc/assets/db.sql</code>, import that using phpMyAdmin instead.</p>
+            <p style="font-size: 18px; font-weight: 700">Remember to delete the <code>install</code> directory once you've done that!</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

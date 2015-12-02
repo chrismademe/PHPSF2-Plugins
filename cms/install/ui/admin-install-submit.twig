@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <title>Install PHPSF2 CMS</title>
+    <style>
+    body {
+        color: #454545;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    .wrapper {
+        margin: 0 auto;
+        width: 400px;
+    }
+    .card {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        margin-top: 30px;
+        padding: 18px 24px;
+    }
+    .button {
+        background-color: #572e8b;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>Copy Required Files</h1>
+
+        <div class="card">
+            <h3>Admin Theme</h3>
+            {% if cms_copy_theme %}
+            <p style="color: #059d61"><strong>Success!</strong> The admin theme has been copied.</p>
+            {% else %}
+            <p style="color: #d04c0b"><strong>Damn!</strong> The admin theme was not copied. Copy it from <code>/app/plugins/cms/install/inc/assets/admin.zip</code> and extract it in <code>/app/theme</code>.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h3>Theme Assets</h3>
+            {% if cms_copy_theme %}
+            <p style="color: #059d61"><strong>Success!</strong> The theme assets have been copied.</p>
+            {% else %}
+            <p style="color: #d04c0b"><strong>Damn!</strong> The theme assets were not copied. Copy them from <code>/app/plugins/cms/install/inc/assets/assets.zip</code> and extract them in <code>/public_html/assets</code>.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <p><a href="/admin/install/database" class="button">Setup the database</a></p>
+        </div>
+
+    </div>
+
+</body>
+</html>

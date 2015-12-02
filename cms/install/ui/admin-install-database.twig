@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>Install PHPSF2 CMS</title>
+    <style>
+    body {
+        color: #454545;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    .wrapper {
+        margin: 0 auto;
+        width: 400px;
+    }
+    .card {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        margin-top: 30px;
+        padding: 18px 24px;
+    }
+    .button {
+        background-color: #572e8b;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        display: inline-block;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    pre {
+        border: 1px solid #eee;
+        background-color: #f9f9f9;
+        color: #777;
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>Install PHPSF2 CMS</h1>
+
+        <div class="card">
+            <h3>Database Setup</h3>
+            <p>We're almost done, copy the below information to your <code>.env</code> file and then proceed to install the database tables.</p>
+            <pre># Database
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=Database Name
+DB_USER=Username
+DB_PASS=Password</pre>
+            <p><a href="/admin/install/database/submit" class="button">Install Database Tables</a></p>
+        </div>
+
+    </div>
+
+</body>
+</html>
