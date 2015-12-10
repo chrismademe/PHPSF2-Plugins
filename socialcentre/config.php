@@ -1,5 +1,5 @@
 <?php
 
-$SocialCentre = [
+$SocialCentre = array(
     'page'  => 'blog'
-];
+);
