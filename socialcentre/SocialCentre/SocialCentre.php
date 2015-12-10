@@ -49,17 +49,8 @@ class SocialCentre {
      */
     public function getPosts() {
 
-        // Debug - remove session
-        if ( $this->debug && isset( $_SESSION['posts'] ) ) {
-            session_destroy();
-        }
-
         // Get Posts
-        if ( !isset( $_SESSION['posts'] ) ) {
-            $posts = file_get_contents('http://'. $this->host .'/admin/api.php?host='. $this->host);
-        } else {
-            return $_SESSION['posts']->content;
-        }
+        $posts = file_get_contents('http://'. $this->host .'/admin/api.php?host='. $this->host);
 
         // Make sure we have data
         if ( !$posts ) {
@@ -84,9 +75,6 @@ class SocialCentre {
 
         // Replace old array
         $posts->content = $the_posts;
-
-        // Store posts
-        $_SESSION['posts'] = $posts;
 
         // Return posts
         return $posts->content;
